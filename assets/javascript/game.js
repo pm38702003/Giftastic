@@ -12,7 +12,6 @@ function renderButtons() {
         button.addClass("btn btn-primary")
 
         $("#dog-view").append(button);   // add buttons
-    }
 }
 
 function playStopGifs() {  // swap urls 
@@ -37,7 +36,7 @@ function showDogs() {
     var breed = $(this).text();
     $("#dog-gifs").empty();
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + breed + "&api_key=THl5OhDrKR3D0ABoY3RHg8f7VMusLuQ7&limit=1&rating=g";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + breed + "&api_key=THl5OhDrKR3D0ABoY3RHg8f7VMusLuQ7&limit=1&rating=g";
 
     $.ajax({
         url: queryURL,
