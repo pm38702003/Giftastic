@@ -12,6 +12,7 @@ function renderButtons() {
         button.addClass("btn btn-primary")
 
         $("#dog-view").append(button);   // add buttons
+    }
 }
 
 function playStopGifs() {  // swap urls 
@@ -46,8 +47,8 @@ function showDogs() {
         for (var i = 0; i < response.data.length; i++) {
             var temp = response.data[i];
 
-            var stillGifUrl = temp.images["fixed_height_still"].url;
-            var movingGifUrl = temp.images["fixed_height"].url;
+            var stillGifUrl = (temp.images["fixed_height_still"].url).replace(/^http:\/\//i, 'https://');;
+            var movingGifUrl = (temp.images["fixed_height"].url).replace(/^http:\/\//i, 'https://');
 
             var img = $('<img />');
             img.attr("src", stillGifUrl);           // static image     
@@ -73,6 +74,8 @@ $("#add-dog-breed").on("click", function (event) {   //add button on click
     // build buttons
     renderButtons();
 });
+
 $(document).on("click", ".dogs", showDogs);    //anything with a dog class calls showDogs methods
 $(document).on("click", ".dogGifs", playStopGifs);
 renderButtons();
+
